@@ -5,6 +5,7 @@ of the port of avalanchego to Rust. The specifications should be very detailed:
 If any particular customization points are missing, highlight what wrapper code will be built around reth primitives to allow for the necessary customization.
 - Should make sure to use [Firewood](https://github.com/ava-labs/firewood) as a direct Rust dependency.
 - As a general rule, high-performance should be maintained and if improvements are noticed while analyzing the Go codebase, make sure to note them as part of the spec.
+- The Rust port should be a drop-in replacement for avalanchego so it should support all the same flags and commands.
 
 In terms of development setup (which should be mentioned in the spec):
 - It should use Nix flakes to setup all development tool dependencies.
@@ -17,6 +18,7 @@ In terms of testing strategy (which should be mentioned in the spec):
 - Unit-tests + property-based tests are a must for every part of the code base.
 - Red/Green TDD should be followed as a developmental methodology.
 - All relevant tests from this Avalanchego repo should be replicated in the Rust port.
+- High level differential tests should be done to compare avalanchego with the Rust port - this should be setup as a property based test that tests both binaries externally.
 
 Use as many subagents as necessary to perform the research by researching each individual point mentioned above and consolidating everything into multiple specification files 
 under specs-rust/*.md. It should be complete and standalone for coding agents to fully derive a Rust implementation.
